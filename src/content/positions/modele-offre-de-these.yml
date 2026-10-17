@@ -1,0 +1,21 @@
+title_fr: "Modèle d'offre de thèse (à dupliquer puis publier)"
+title_en: "PhD offer template (duplicate, then publish)"
+type: phd
+status: open
+hidden: true
+start: ''
+deadline: ''
+location: L2TI · Université Sorbonne Paris Nord, Villetaneuse
+funding: ''
+summary_fr: Décrivez le sujet en deux ou trois phrases.
+summary_en: ''
+description_fr: |-
+  **Contexte.** …
+
+  **Missions.** …
+
+  **Profil recherché.** Master en informatique, traitement du signal et des images ou science des données.
+description_en: ''
+contact_email: aladine.chetouani@univ-paris13.fr
+link: ''
+pdf: ''

@@ -1,0 +1,37 @@
+---
+import Intro from './home/Intro.astro';
+import NewsSection from './home/NewsSection.astro';
+import ResearchSection from './home/ResearchSection.astro';
+import PublicationsSection from './home/PublicationsSection.astro';
+import ServiceSection from './home/ServiceSection.astro';
+import BlogSection from './home/BlogSection.astro';
+import TeamSection from './home/TeamSection.astro';
+import AboutSection from './home/AboutSection.astro';
+import TeachingSection from './home/TeachingSection.astro';
+import GallerySection from './home/GallerySection.astro';
+import PositionsSection from './home/PositionsSection.astro';
+import { getHomeSections } from '../lib/content';
+import type { Lang } from '../lib/i18n';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const sections = getHomeSections();
+const titleOf = (sec: any) => (lang === 'fr' ? sec.question_fr || sec.title_fr : sec.question_en || sec.title_en) || sec.question_fr || sec.title_fr || sec.id;
+const components: Record<string, any> = {
+  news: NewsSection,
+  research: ResearchSection,
+  publications: PublicationsSection,
+  service: ServiceSection,
+  blog: BlogSection,
+  team: TeamSection,
+  about: AboutSection,
+  teaching: TeachingSection,
+  positions: PositionsSection,
+  gallery: GallerySection,
+};
+---
+<Intro lang={lang} />
+{sections.map((sec) => {
+  const Component = components[sec.id];
+  return Component ? <Component lang={lang} title={titleOf(sec)} n={sec.n} /> : null;
+})}

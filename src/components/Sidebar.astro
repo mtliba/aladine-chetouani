@@ -1,0 +1,144 @@
+---
+import Icon from './Icon.astro';
+import { t, pick, href, withBase, localePath, formatNumber, type Lang } from '../lib/i18n';
+import { getSite, getHomeSections } from '../lib/content';
+
+interface Props {
+  lang: Lang;
+  path: string;
+  sections: unknown;
+  other: Lang;
+}
+
+const { lang, path, other } = Astro.props;
+const s = t(lang);
+const site = getSite();
+const isHome = path === '';
+const m = site.metrics || {};
+const links: { label: string; url: string }[] = (site.links || []).filter((l: any) => l?.url);
+const iconFor = (label: string) => {
+  const key = label.toLowerCase().replace(/\s+/g, '');
+  if (key.includes('scholar')) return 'scholar';
+  if (key.includes('orcid')) return 'orcid';
+  if (key.includes('linkedin')) return 'linkedin';
+  if (key.includes('researchgate')) return 'researchgate';
+  if (key === 'hal') return 'hal';
+  if (key.includes('scopus')) return 'scopus';
+  if (key.includes('dblp')) return 'dblp';
+  return 'link';
+};
+const scholar = links.find((l) => iconFor(l.label) === 'scholar');
+const parts = String(site.name || '').trim().split(/\s+/);
+const initials = parts.map((p) => p[0]).slice(0, 2).join('');
+const photo = site.photo ? withBase(site.photo) : '';
+const cv = site.cv ? withBase(site.cv) : '';
+const pages: Record<string, string> = { news: 'news/', publications: 'publications/', blog: 'blog/' };
+const nav = getHomeSections().map((sec) => ({
+  id: sec.id,
+  n: sec.n,
+  label: (lang === 'fr' ? sec.title_fr : sec.title_en) || sec.title_fr || sec.id,
+  href: isHome ? `#${sec.id}` : `${href(lang)}#${sec.id}`,
+  current: !!pages[sec.id] && path.startsWith(pages[sec.id]),
+}));
+const NameTag = isHome ? 'h1' : 'p';
+---
+<aside class="side" aria-label={s.nav_label}>
+  <div class="side__inner">
+    <div class="side__id">
+      <a class="side__photo" href={href(lang)} tabindex={isHome ? -1 : undefined}>
+        {photo ? (
+          <img src={photo} alt={pick(site, 'photo_alt', lang)} width="240" height="240" />
+        ) : (
+          <span class="side__initials" aria-hidden="true">{initials}</span>
+        )}
+      </a>
+      <div class="side__who">
+        <NameTag class="side__name"><a href={href(lang)}>{site.name}</a></NameTag>
+        <p class="side__role">{pick(site, 'title', lang)}</p>
+        <p class="side__aff">{pick(site, 'affiliation', lang)}</p>
+      </div>
+    </div>
+
+    <ul class="side__links">
+      {site.email && <li><a href={`mailto:${site.email}`}><Icon name="email" />{s.email}</a></li>}
+      {links.map((l) => <li><a href={l.url} rel="noopener me"><Icon name={iconFor(l.label)} />{l.label}</a></li>)}
+      {cv && <li><a href={cv}><Icon name="doc" />CV</a></li>}
+    </ul>
+
+    {m.citations && (
+      <p class="side__metrics">
+        <span><strong>{formatNumber(Number(m.citations), lang)}</strong> citations</span>
+        <span>h-index <strong>{m.h_index}</strong></span>
+        {m.i10_index && <span>i10-index <strong>{m.i10_index}</strong></span>}
+        <span class="side__source">{scholar ? <a href={scholar.url} rel="noopener">{m.source || s.scholar_source}</a> : (m.source || s.scholar_source)}{m.as_of && `, ${m.as_of}`}</span>
+      </p>
+    )}
+
+    <div class="gaze-ctl" data-gaze-ctl hidden>
+      <button class="switch" type="button" role="switch" aria-checked="true" data-gaze-toggle>
+        <span class="switch__track" aria-hidden="true"><span class="switch__dot"></span></span>{s.gaze_toggle}
+      </button>
+      <button class="linkbtn" type="button" data-gaze-heatmap>{s.gaze_heatmap_short}</button>
+      <p class="gaze-ctl__stats" data-gaze-stats>{s.gaze_stats(0, 0)}</p>
+    </div>
+
+    <details class="side__menu" open>
+      <summary><Icon name="menu" />{s.menu}</summary>
+      <nav aria-label={s.nav_label}>
+        <ol class="side__nav">
+          {nav.map((item) => (
+            <li><a href={item.href} data-target={item.id} aria-current={item.current ? 'page' : undefined}>{item.label}</a></li>
+          ))}
+          <li><a href="#contact">{s.nav_contact}</a></li>
+        </ol>
+      </nav>
+    </details>
+
+
+
+  </div>
+</aside>
+
+<script>
+  const root = document.documentElement;
+  document.querySelectorAll<HTMLButtonElement>('[data-theme-toggle]').forEach((button) => {
+    button.addEventListener('click', () => {
+      const current = root.dataset.theme || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      const next = current === 'dark' ? 'light' : 'dark';
+      root.dataset.theme = next;
+      try {
+        localStorage.setItem('theme', next);
+      } catch {
+        /* storage unavailable: the choice lasts for this page only */
+      }
+    });
+  });
+  // Small screens: the section menu starts closed and closes after a jump.
+  const menu = document.querySelector<HTMLDetailsElement>('.side__menu');
+  const small = matchMedia('(max-width: 959px)');
+  if (menu) {
+    const sync = () => { menu.open = !small.matches; };
+    sync();
+    small.addEventListener('change', sync);
+    menu.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => { if (small.matches) menu.open = false; }));
+  }
+  // Highlight the section currently in view (home page).
+  const links = [...document.querySelectorAll<HTMLAnchorElement>('.side__nav a[data-target]')];
+  const targets = links
+    .map((link) => ({ link, el: document.getElementById(link.dataset.target || '') }))
+    .filter((x): x is { link: HTMLAnchorElement; el: HTMLElement } => !!x.el);
+  if (targets.length && 'IntersectionObserver' in window) {
+    const visible = new Map<Element, number>();
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((e) => visible.set(e.target, e.isIntersecting ? e.intersectionRatio : 0));
+      let best: HTMLAnchorElement | null = null;
+      let bestRatio = 0;
+      for (const { link, el } of targets) {
+        const r = visible.get(el) || 0;
+        if (r > bestRatio) { bestRatio = r; best = link; }
+      }
+      links.forEach((l) => l.classList.toggle('is-active', l === best));
+    }, { rootMargin: '-10% 0px -50% 0px', threshold: [0, 0.1, 0.25, 0.5] });
+    targets.forEach(({ el }) => observer.observe(el));
+  }
+</script>

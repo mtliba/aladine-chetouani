@@ -1,0 +1,106 @@
+# Communauté scientifique — modifiable dans le CMS (Pages > Communauté scientifique)
+intro_fr: Organisation de conférences, comités éditoriaux et comités de l'IEEE Signal Processing Society.
+intro_en: Conference leadership, editorial boards and IEEE Signal Processing Society committees.
+conferences:
+  - year: '2026'
+    role_fr: Président général
+    role_en: General Chair
+    event: ACM ETRA 2026
+    place_fr: Marrakech, Maroc
+    place_en: Marrakesh, Morocco
+    link: https://etra.acm.org/2026/
+  - year: '2025'
+    role_fr: Président général
+    role_en: General Chair
+    event: ACM ETRA 2025
+    place_fr: Tokyo, Japon
+    place_en: Tokyo, Japan
+    link: https://etra.acm.org/2025/
+  - year: '2024'
+    role_fr: Président général
+    role_en: General Chair
+    event: IEEE IPTA 2024
+    place_fr: Rabat, Maroc
+    place_en: Rabat, Morocco
+    link: ''
+  - year: '2024'
+    role_fr: Président général
+    role_en: General Chair
+    event: CBMI 2024
+    place_fr: Reykjavik, Islande
+    place_en: Reykjavik, Iceland
+    link: ''
+  - year: '2024'
+    role_fr: Président du comité de programme
+    role_en: TPC Chair
+    event: EUVIP 2024
+    place_fr: Genève, Suisse
+    place_en: Geneva, Switzerland
+    link: ''
+  - year: '2023'
+    role_fr: Président général
+    role_en: General Chair
+    event: CBMI 2023
+    place_fr: Orléans, France
+    place_en: Orléans, France
+    link: ''
+  - year: '2023'
+    role_fr: Organisateur du Grand Challenge sur la qualité des nuages de points
+    role_en: Organiser, Grand Challenge on point cloud quality assessment
+    event: IEEE ICIP 2023
+    place_fr: Kuala Lumpur, Malaisie
+    place_en: Kuala Lumpur, Malaysia
+    link: ''
+  - year: '2022'
+    role_fr: Co-président de session thématique
+    role_en: Track Co-Chair
+    event: IEEE SSD 2022
+    place_fr: ''
+    place_en: ''
+    link: ''
+  - year: '2014'
+    role_fr: Organisateur d'un challenge (15 équipes)
+    role_en: Challenge organiser (15 teams)
+    event: IEEE ISBI 2014
+    place_fr: Pékin, Chine
+    place_en: Beijing, China
+    link: ''
+editorial:
+  - role_fr: Éditeur associé
+    role_en: Associate Editor
+    venue: IEEE Transactions on Multimedia
+    period: ''
+  - role_fr: Éditeur associé
+    role_en: Associate Editor
+    venue: IEEE Transactions on Circuits and Systems for Video Technology
+    period: 2022 – 2024
+  - role_fr: Éditeur associé
+    role_en: Associate Editor
+    venue: IEEE Data Descriptions
+    period: ''
+  - role_fr: Éditeur associé
+    role_en: Associate Editor
+    venue: Signal Processing — Image Communication (Elsevier)
+    period: ''
+  - role_fr: Éditeur associé
+    role_en: Associate Editor
+    venue: EURASIP Journal on Image and Video Processing
+    period: ''
+  - role_fr: Éditeur invité
+    role_en: Guest Editor
+    venue: IEEE JSTSP, Journal of Electronic Imaging, Multimedia Tools and Applications, Applied Sciences
+    period: ''
+committees_fr:
+  - 'IEEE SPS : président du comité Challenges & Data Collection (2025–) ; membre des comités techniques MMSP, IVMSP et CDC'
+  - 'Comités de pilotage : IEEE IPTA (webmestre depuis 2016), CBMI (depuis 2023)'
+  - 'Area Chair : ICIP, ICASSP, ICME, QoMEX, EUSIPCO, ACM IMX'
+  - 'Comités de programme : ACM Multimedia, ICPR et d''autres'
+  - '9 sessions spéciales (ICIP 2018, 2021, 2022 ; ICME 2020 ; IPTA 2015, 2019 ; GRETSI 2019 ; EUVIP 2018) et l''atelier ACM IMX « Visual Attention in Multimedia Experience »'
+  - '8 conférences invitées, dont CIC 2019, IEEE EUVIP 2016, NTNU Colourlab, Cardiff University, Université Mohammed Premier'
+committees_en:
+  - 'IEEE SPS: Chair of the Challenges & Data Collection Committee (2025–); member of the MMSP, IVMSP and CDC Technical Committees'
+  - 'Steering committees: IEEE IPTA (webmaster since 2016), CBMI (since 2023)'
+  - 'Area Chair: ICIP, ICASSP, ICME, QoMEX, EUSIPCO, ACM IMX'
+  - 'Programme committees: ACM Multimedia, ICPR and others'
+  - '9 special sessions (ICIP 2018, 2021, 2022; ICME 2020; IPTA 2015, 2019; GRETSI 2019; EUVIP 2018) and the ACM IMX workshop “Visual Attention in Multimedia Experience”'
+  - '8 invited talks, incl. CIC 2019, IEEE EUVIP 2016, NTNU Colourlab, Cardiff University, Université Mohammed Premier'

@@ -1,0 +1,70 @@
+# Parcours — modifiable dans le CMS (Pages > Biographie et parcours)
+bio_fr: |-
+  Il est professeur des universités à l'Université Sorbonne Paris Nord, où il dirige l'équipe Multimédia du laboratoire L2TI et le parcours Images du master 2 « Ingénierie et Innovation en Images et Réseaux » (3IR).
+
+  Ses recherches portent sur des modèles de perception visuelle fondés sur l'apprentissage : attention visuelle, qualité perçue, expressions faciales et comportement humain, pour les images, la stéréo, la vidéo, les maillages 3D et les nuages de points, avec des applications en imagerie médicale et pour le patrimoine culturel. Il a publié 28 articles de revues et plus de 150 communications, et encadré douze doctorants.
+
+  Il a été président général d'ACM ETRA 2025 et 2026 ; il préside le comité Challenges & Data Collection de l'IEEE Signal Processing Society et est éditeur associé d'IEEE Transactions on Multimedia.
+bio_en: |-
+  He is a Full Professor at Université Sorbonne Paris Nord, where he heads the Multimedia team of the L2TI laboratory and the Images track of the MSc 2 “Engineering and Innovation in Images and Networks” (3IR).
+
+  His research develops learning-based models of visual perception — visual attention, perceived quality, facial expressions and human behaviour — for images, stereo, video, 3D meshes and point clouds, with applications in medical imaging and cultural heritage. He has published 28 journal articles and more than 150 conference papers, and supervised twelve PhD students.
+
+  He was General Chair of ACM ETRA 2025 and 2026, chairs the IEEE Signal Processing Society Challenges & Data Collection committee, and is an Associate Editor of IEEE Transactions on Multimedia.
+timeline:
+  - period: 2024 –
+    title_fr: Professeur des universités
+    title_en: Full Professor
+    place: L2TI – Institut Galilée, Université Sorbonne Paris Nord
+    detail_fr: Responsable de l'équipe Multimédia et du parcours Images du master 2 3IR.
+    detail_en: Head of the Multimedia team and of the Images track of the MSc 2 3IR.
+  - period: 2020 – 2021
+    title_fr: Délégation CNRS
+    title_en: CNRS research delegation
+    place: L2S, CentraleSupélec, Université Paris-Saclay
+    detail_fr: ''
+    detail_en: ''
+  - period: '2020'
+    title_fr: Habilitation à diriger des recherches (HDR)
+    title_en: Habilitation (HDR)
+    place: Université d'Orléans
+    detail_fr: « On the use of visual attention and deep learning for blind quality assessment of multimedia contents ».
+    detail_en: '"On the use of visual attention and deep learning for blind quality assessment of multimedia contents".'
+  - period: 2012 – 2024
+    title_fr: Maître de conférences
+    title_en: Associate Professor
+    place: Polytech Orléans & laboratoire PRISME, Université d'Orléans
+    detail_fr: ''
+    detail_en: ''
+  - period: 2011 – 2012
+    title_fr: Attaché temporaire d'enseignement et de recherche
+    title_en: Assistant Professor (ATER)
+    place: UPMC – Paris 6
+    detail_fr: ''
+    detail_en: ''
+  - period: '2010'
+    title_fr: Doctorat
+    title_en: PhD
+    place: Université Paris 13, laboratoire L2TI
+    detail_fr: « Vers un système d'évaluation de la qualité d'image multi-critères », sous la direction d'Azeddine Beghdadi.
+    detail_en: '"Towards a multi-criteria image quality assessment system", supervised by Azeddine Beghdadi.'
+distinctions:
+  - year: '2025'
+    title_fr: Président du comité Challenges & Data Collection de l'IEEE SPS
+    title_en: Chair, IEEE SPS Challenges & Data Collection Committee
+  - year: ''
+    title_fr: Senior Member de l'IEEE
+    title_en: IEEE Senior Member
+  - year: ''
+    title_fr: Membre élu des comités techniques IEEE SPS MMSP, IVMSP et CDC
+    title_en: Elected member, IEEE SPS MMSP, IVMSP and CDC Technical Committees
+service_fr:
+  - 'Président de la commission d''experts disciplinaire CED 61, USPN (2025–)'
+  - 'Membre élu du conseil de laboratoire, USPN (2025–)'
+  - 'Membre élu du bureau du GDR IASIS (2023–)'
+  - 'Expert pour l''ANR, le crédit impôt recherche et le programme « Émergences » de la Ville de Paris'
+service_en:
+  - 'President, CED 61 disciplinary expert committee, USPN (2025–)'
+  - 'Elected member, laboratory board, USPN (2025–)'
+  - 'Elected board member, GDR IASIS (2023–)'
+  - 'Expert evaluator for ANR, the research tax credit (CIR) and the City of Paris "Émergences" programme'

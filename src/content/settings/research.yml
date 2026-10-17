@@ -1,0 +1,42 @@
+# Thèmes de recherche — modifiable dans le CMS (Pages > Recherche)
+intro_fr: ''
+intro_en: ''
+themes:
+  - code: GAZE
+    title_fr: Attention visuelle et oculométrie
+    title_en: Visual attention and eye tracking
+    text_fr: Prédiction de la saillance et des parcours oculaires (scanpaths) par apprentissage profond, campagnes d'oculométrie, attention visuelle sur les images, les vidéos, les contenus 3D et les œuvres d'art.
+    text_en: Deep models of saliency and scanpath prediction, eye-tracking studies, and visual attention on images, video, 3D content and artworks.
+    keywords: [Saliency, Scanpaths, Eye tracking, ETRA]
+  - code: IQA
+    title_fr: Évaluation de la qualité perçue
+    title_en: Perceptual quality assessment
+    text_fr: Métriques de qualité sans référence guidées par l'attention, pour les images, la stéréoscopie, la vidéo, les maillages 3D et les nuages de points ; bases de données subjectives et challenges internationaux.
+    text_en: Attention-guided no-reference quality metrics for images, stereo, video, 3D meshes and point clouds; subjective databases and international grand challenges.
+    keywords: [No-reference IQA, Point clouds, 3D meshes, Stereo]
+  - code: MED
+    title_fr: Imagerie médicale
+    title_en: Medical imaging
+    text_fr: Détection précoce de la gonarthrose sur radiographies, classification et segmentation par réseaux profonds, en collaboration avec des cliniciens.
+    text_en: Early detection of knee osteoarthritis on radiographs, deep classification and segmentation, in collaboration with clinicians.
+    keywords: [Knee osteoarthritis, X-ray, Explainability]
+  - code: HERITAGE
+    title_fr: Patrimoine culturel et art
+    title_en: Cultural heritage and art
+    text_fr: Analyse d'images pour le patrimoine (tessons de céramique gravés, peintures de musées), regard des visiteurs et des artistes sur les œuvres, expérience artistique dans le trouble du spectre de l'autisme.
+    text_en: Image analysis for heritage (engraved pottery sherds, museum paintings), how visitors and artists look at artworks, artistic experience in autism spectrum disorder.
+    keywords: [Pottery sherds, Paintings, Art perception]
+  - code: HUMAN
+    title_fr: Expressions faciales et comportement humain
+    title_en: Facial expressions and human behaviour
+    text_fr: Reconnaissance des expressions faciales, anti-usurpation en reconnaissance faciale, analyse du comportement humain à partir de signaux visuels.
+    text_en: Facial expression recognition, face anti-spoofing, and analysis of human behaviour from visual signals.
+    keywords: [Facial expressions, Anti-spoofing, Behaviour]
+facilities_fr: ''
+facilities_en: ''
+figure: /uploads/research/scanpaths-artists-neurotypical-asd.jpg
+figure_caption_fr: Parcours oculaires d'un artiste, d'un observateur neurotypique et d'un adulte autiste sur la même peinture.
+figure_caption_en: Scanpaths of an artist, a neurotypical observer and an autistic adult on the same painting.
+figure_alt_fr: Trois copies d'un paysage peint, chacune couverte du parcours oculaire d'un groupe différent
+figure_alt_en: Three copies of a landscape painting, each overlaid with the scanpath of a different group
+figure_credit: Figure 5, Kerkouri et al., arXiv 2026 (CC BY-NC-SA 4.0)

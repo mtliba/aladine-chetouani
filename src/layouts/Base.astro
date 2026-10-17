@@ -1,0 +1,84 @@
+---
+import '@fontsource/charis-sil/400.css';
+import '@fontsource/charis-sil/400-italic.css';
+import '@fontsource/charis-sil/700.css';
+import '@fontsource-variable/atkinson-hyperlegible-next/wght.css';
+import '../styles/global.css';
+import Sidebar from '../components/Sidebar.astro';
+import Footer from '../components/Footer.astro';
+import GazeLayer from '../components/GazeLayer.astro';
+import Topbar from '../components/Topbar.astro';
+import { getSite, getSections } from '../lib/content';
+import { pick, withBase, localePath, otherLang, type Lang } from '../lib/i18n';
+
+interface Props {
+  lang: Lang;
+  /** Page path without language prefix, e.g. '' for home, 'news/' for news. */
+  path?: string;
+  title?: string;
+  description?: string;
+}
+
+const { lang, path = '', title, description } = Astro.props;
+const site = getSite();
+const sections = getSections();
+const fullTitle = title ? `${title} — ${site.name}` : `${site.name} — ${pick(site, 'title', lang)}`;
+const desc = description || `${pick(site, 'title', lang)}, ${pick(site, 'affiliation', lang)}. ${pick(site, 'tagline', lang)}`;
+const canonical = new URL(withBase(localePath(lang, path)), Astro.site).href;
+const alternates = (['en', 'fr'] as Lang[]).map((l) => ({ lang: l, href: new URL(withBase(localePath(l, path)), Astro.site).href }));
+const other = otherLang(lang);
+const photo = site.photo ? new URL(withBase(site.photo), Astro.site).href : undefined;
+---
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={desc} />
+    <link rel="canonical" href={canonical} />
+    {alternates.map((a) => <link rel="alternate" hreflang={a.lang} href={a.href} />)}
+    <link rel="alternate" hreflang="x-default" href={alternates[0].href} />
+    <link rel="icon" href={withBase('/favicon.svg')} type="image/svg+xml" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#121214" media="(prefers-color-scheme: dark)" />
+    <script is:inline>
+      try {
+        const saved = localStorage.getItem('theme');
+        if (saved === 'dark' || saved === 'light') document.documentElement.dataset.theme = saved;
+      } catch (e) {}
+    </script>
+    <meta property="og:type" content="profile" />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={desc} />
+    <meta property="og:url" content={canonical} />
+    {photo && <meta property="og:image" content={photo} />}
+    <meta property="og:locale" content={lang === 'fr' ? 'fr_FR' : 'en_GB'} />
+    <meta name="twitter:card" content="summary" />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'Person',
+      name: site.name,
+      jobTitle: pick(site, 'title', lang),
+      affiliation: { '@type': 'CollegeOrUniversity', name: 'Université Sorbonne Paris Nord' },
+      email: site.email ? `mailto:${site.email}` : undefined,
+      image: photo,
+      url: canonical,
+      sameAs: (site.links || []).map((l: any) => l.url),
+    })} />
+  </head>
+  <body>
+    <a class="skip" href="#main">{lang === 'fr' ? 'Aller au contenu' : 'Skip to content'}</a>
+    <div class="shell">
+      <Sidebar lang={lang} path={path} sections={sections} other={other} />
+      <div class="content">
+        <Topbar lang={lang} path={path} other={other} />
+        <main id="main">
+          <slot />
+        </main>
+        <Footer lang={lang} />
+      </div>
+    </div>
+    <GazeLayer lang={lang} />
+  </body>
+</html>

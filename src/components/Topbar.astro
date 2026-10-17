@@ -1,0 +1,15 @@
+---
+import Icon from './Icon.astro';
+import { t, withBase, localePath, type Lang } from '../lib/i18n';
+
+interface Props { lang: Lang; path: string; other: Lang }
+const { lang, path, other } = Astro.props;
+const s = t(lang);
+---
+<div class="topbar">
+  <a class="tool" href={withBase(localePath(other, path))} hreflang={other} lang={other}>{s.switch_lang}</a>
+  <button class="tool tool--icon" type="button" data-theme-toggle aria-label={s.theme_toggle} title={s.theme_toggle}>
+    <Icon name="moon" class="icon-moon" />
+    <Icon name="sun" class="icon-sun" />
+  </button>
+</div>

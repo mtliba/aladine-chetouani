@@ -1,0 +1,10 @@
+---
+interface Props { id: string; title: string; intro?: string; moreHref?: string; moreLabel?: string; n?: number }
+const { id, title, intro, moreHref, moreLabel } = Astro.props;
+---
+<section class="section" id={id} aria-labelledby={`${id}-title`}>
+  <h2 class="section__q" id={`${id}-title`}>{title}</h2>
+  {intro && <p class="section__intro">{intro}</p>}
+  <slot />
+  {moreHref && <p class="section__more"><a href={moreHref}>{moreLabel} <span aria-hidden="true">→</span></a></p>}
+</section>

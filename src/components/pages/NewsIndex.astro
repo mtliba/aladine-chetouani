@@ -1,0 +1,37 @@
+---
+import PageHead from '../PageHead.astro';
+import { t, href, withBase, formatDate, type Lang } from '../../lib/i18n';
+import { getFeed } from '../../lib/newsfeed';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const s = t(lang);
+const feed = getFeed(lang);
+const byYear = new Map<string, typeof feed>();
+for (const it of feed) {
+  const y = it.date.slice(0, 4);
+  if (!byYear.has(y)) byYear.set(y, []);
+  byYear.get(y)!.push(it);
+}
+---
+<PageHead title={s.page_news_title} intro={s.page_news_intro} backHref={href(lang)} backLabel={s.home} />
+<div class="page-body">
+  {feed.length === 0 && <p class="empty">{s.news_empty}</p>}
+  {[...byYear.entries()].map(([year, list]) => (
+    <section class="year-group" aria-labelledby={`y-${year}`}>
+      <h2 class="year-group__title" id={`y-${year}`}>{year}</h2>
+      <ul class="feed">
+        {list.map((it) => (
+          <li class:list={['feed__item', it.image && 'feed__item--pic']}>
+            <div>
+              <p class="story__meta"><time datetime={it.date}>{formatDate(it.date, lang)}</time> · {it.kind}</p>
+              <p class="feed__title">{it.link ? <a href={it.link} rel={it.external ? 'noopener' : undefined}>{it.title}</a> : it.title}</p>
+              {it.summary && <p class="feed__summary">{it.summary}</p>}
+            </div>
+            {it.image && <img src={withBase(it.image)} alt={it.imageAlt} loading="lazy" width="240" height="160" />}
+          </li>
+        ))}
+      </ul>
+    </section>
+  ))}
+</div>

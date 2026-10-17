@@ -1,0 +1,11 @@
+title: "GazeVaLM: A Multi-Observer Eye-Tracking Benchmark for Evaluating Clinical Realism in AI-Generated X-Rays"
+authors: David Wong, Zeynep Isik, Bin Wang, Marouane Tliba, Gorkem Durak, Elif Keles, Halil Ertugrul Aktas, Aladine Chetouani, Cagdas Topel, Nicolo Gennaro, Camila Lopes Vendrami, Tugce Agirlar Trabzonlu, Amir Ali Rahsepar, Laetitia Perronne, Matthew Antalek, Onural Ozturk, Gokcan Okur, Andrew Gordon, Ayis Pyrros, Frank Miller, Amir Borhani, Hatice Savas, Eric Hart, Elizabeth Krupinski, Ulas Bagci
+year: 2026
+type: conference
+venue: "ETRA '26: 2026 Symposium on Eye Tracking Research and Applications"
+details: pp. 1-6
+doi: 10.1145/3797246.3806796
+url: https://hal.science/hal-05784980v1
+hal_id: hal-05784980
+featured: false
+hidden: false

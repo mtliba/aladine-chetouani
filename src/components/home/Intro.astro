@@ -1,0 +1,18 @@
+---
+import { t, pick, type Lang } from '../../lib/i18n';
+import { getSite, getAbout, markdown } from '../../lib/content';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const s = t(lang);
+const site = getSite();
+const about = getAbout();
+---
+<section class="intro" aria-label={s.about}>
+  <p class="intro__lede">{pick(site, 'tagline', lang)}</p>
+  <p class="intro__invite" data-gaze-invite hidden>
+    <svg class="intro__fix" viewBox="0 0 64 28" aria-hidden="true"><line x1="17" y1="16" x2="41" y2="11" /><circle cx="10" cy="17" r="7" /><circle cx="50" cy="10" r="9" /><text x="10" y="17.5">1</text><text x="50" y="10.5">2</text></svg>
+    <span data-on>{s.gaze_invite}</span><span data-off hidden>{s.gaze_invite_off}</span>
+  </p>
+  <div class="intro__bio prose" set:html={markdown(pick(about, 'bio', lang))} />
+</section>

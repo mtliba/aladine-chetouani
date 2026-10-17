@@ -1,0 +1,18 @@
+---
+import Section from '../Section.astro';
+import PubItem from '../PubItem.astro';
+import { t, href, type Lang } from '../../lib/i18n';
+import { getPublications } from '../../lib/content';
+
+interface Props { lang: Lang; title: string; n?: number }
+const { lang, title } = Astro.props;
+const s = t(lang);
+const pubs = getPublications();
+const featured = pubs.filter((p) => p.featured);
+const rows = (featured.length ? featured : pubs.filter((p) => p.type === 'journal').slice(0, 6)).sort((a, b) => b.year - a.year);
+---
+<Section id="publications" title={title} intro={s.featured_pubs} moreHref={href(lang, 'publications/')} moreLabel={s.full_record(pubs.length)}>
+  <ol class="pubs">
+    {rows.map((pub) => <PubItem pub={pub} lang={lang} />)}
+  </ol>
+</Section>

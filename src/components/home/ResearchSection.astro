@@ -1,0 +1,65 @@
+---
+import Section from '../Section.astro';
+import { t, pick, withBase, type Lang } from '../../lib/i18n';
+import { getResearch, getProjects } from '../../lib/content';
+
+interface Props { lang: Lang; title: string; n?: number }
+const { lang, title } = Astro.props;
+const s = t(lang);
+const research = getResearch();
+const themes: any[] = research.themes || [];
+const facilities = pick(research, 'facilities', lang);
+const figure = research.figure ? withBase(research.figure) : '';
+const projects = getProjects();
+// Projects with a description get a row; the others are named in one sentence.
+const described = projects.filter((p) => pick(p, 'title', lang));
+const named = projects.filter((p) => !pick(p, 'title', lang));
+const listFormat = new Intl.ListFormat(lang === 'fr' ? 'fr' : 'en', { style: 'long', type: 'conjunction' });
+const isPartner = (p: any) => /partner|partenaire/i.test(`${p.role_en || ''} ${p.role_fr || ''}`);
+// "Regional project" reads lower-case inside a sentence; acronyms (ANR) stay as they are.
+const inSentence = (v: string) => (/^[A-ZÀ-Ý][a-zà-ÿ]/.test(v) ? v[0].toLowerCase() + v.slice(1) : v);
+const sentence = (list: any[]) => listFormat.format(list.map((p) => (pick(p, 'programme', lang) ? `${p.name} (${inSentence(pick(p, 'programme', lang))})` : p.name)));
+const namedLed = named.filter((p) => !isPartner(p));
+const namedPartner = named.filter(isPartner);
+---
+<Section id="research" title={title} intro={pick(research, 'intro', lang)}>
+  <div class:list={['research', figure && 'research--fig']}>
+    <dl class="themes">
+      {themes.map((theme) => (
+        <div class="theme">
+          <dt>{pick(theme, 'title', lang)}</dt>
+          <dd>{pick(theme, 'text', lang)}</dd>
+        </div>
+      ))}
+    </dl>
+    {figure && (
+      <figure class="research__figure">
+        <img src={figure} alt={pick(research, 'figure_alt', lang) || ''} loading="lazy" />
+        <figcaption>{pick(research, 'figure_caption', lang)}{research.figure_credit && <span class="credit"> {research.figure_credit}</span>}</figcaption>
+      </figure>
+    )}
+  </div>
+
+  {projects.length > 0 && (
+    <div class="subsection" id="projects">
+      <h3 class="subsection__title">{s.projects_title}</h3>
+      {described.length > 0 && (
+        <ul class="projects">
+          {described.map((p) => (
+            <li class="project" id={`project-${p.slug}`}>
+              <p class="project__name">{p.link ? <a href={p.link} rel="noopener">{p.name}</a> : p.name}</p>
+              <div>
+                <p class="project__title">{pick(p, 'title', lang)}</p>
+                <p class="project__meta">{[pick(p, 'role', lang), pick(p, 'programme', lang), pick(p, 'period', lang)].filter(Boolean).join(' · ')}</p>
+              </div>
+            </li>
+          ))}
+        </ul>
+      )}
+      {namedLed.length > 0 && <p class="projects__also">{s.also_led} {sentence(namedLed)}.</p>}
+      {namedPartner.length > 0 && <p class="projects__also">{s.partner_in} {sentence(namedPartner)}.</p>}
+    </div>
+  )}
+
+  {facilities && <p class="facility"><strong>{s.facilities}.</strong> {facilities}</p>}
+</Section>

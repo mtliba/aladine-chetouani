@@ -1,0 +1,48 @@
+---
+import Section from '../Section.astro';
+import { t, pick, type Lang } from '../../lib/i18n';
+import { getService } from '../../lib/content';
+
+interface Props { lang: Lang; title: string; n?: number }
+const { lang, title, n } = Astro.props;
+const s = t(lang);
+const service = getService();
+const conferences: any[] = (service.conferences || []).filter((c: any) => c && c.event);
+const editorial: any[] = (service.editorial || []).filter((e: any) => e && e.venue);
+const asText = (item: unknown) => (typeof item === 'string' ? item : item && typeof item === 'object' ? Object.entries(item).map(([k, v]) => `${k}: ${v}`).join(' ') : String(item ?? ''));
+const committees: string[] = (pick(service, 'committees', lang) || []).map(asText);
+---
+<Section id="service" title={title} n={n} intro={pick(service, 'intro', lang)}>
+  {conferences.length > 0 && (
+    <div class="subsection">
+      <h3 class="subsection__title">{s.conferences}</h3>
+      <table class="ledger">
+        <tbody>
+          {conferences.map((c) => (
+            <tr>
+              <td class="num">{c.year}</td>
+              <th scope="row">{c.link ? <a href={c.link} rel="noopener">{c.event}</a> : c.event}{pick(c, 'place', lang) && <span class="ledger__place">{pick(c, 'place', lang)}</span>}</th>
+              <td>{pick(c, 'role', lang)}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  )}
+  {editorial.length > 0 && (
+    <div class="subsection">
+      <h3 class="subsection__title">{s.editorial}</h3>
+      <ul class="plain-list">
+        {editorial.map((e) => (
+          <li><em>{e.venue}</em> — {pick(e, 'role', lang)}{e.period && <span class="plain-list__date"> {e.period}</span>}</li>
+        ))}
+      </ul>
+    </div>
+  )}
+  {committees.length > 0 && (
+    <div class="subsection">
+      <h3 class="subsection__title">{s.committees}</h3>
+      <ul class="plain-list">{committees.map((c) => <li>{c}</li>)}</ul>
+    </div>
+  )}
+</Section>

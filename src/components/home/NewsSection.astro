@@ -1,0 +1,54 @@
+---
+import Section from '../Section.astro';
+import { t, href, withBase, formatDate, type Lang } from '../../lib/i18n';
+import { getFeed } from '../../lib/newsfeed';
+
+interface Props { lang: Lang; title: string; n?: number }
+const { lang, title } = Astro.props;
+const s = t(lang);
+const feed = getFeed(lang);
+// The two most recent items with a picture lead; the rest follow as a dated list.
+const pictured = feed.filter((it) => it.image).slice(0, 3);
+const [lead, ...pair] = pictured;
+const rest = feed.filter((it) => !pictured.includes(it)).slice(0, 6);
+// Figures carry their own label; photos get the word "Photo" in front.
+const credit = (c: string) => (!c ? '' : /^(figure|fig\.|photo|image)/i.test(c) ? c : `${s.photo}${lang === 'fr' ? '\u00a0: ' : ': '}${c}`);
+---
+<Section id="news" title={title} moreHref={feed.length > pictured.length + rest.length ? href(lang, 'news/') : undefined} moreLabel={s.all_news}>
+  {feed.length === 0 && <p class="empty">{s.news_empty}</p>}
+  {lead && (
+    <article class="story story--lead">
+      <figure class="story__figure">
+        <img src={withBase(lead.image)} alt={lead.imageAlt} width="1200" height="800" />
+        {lead.credit && <figcaption>{credit(lead.credit)}</figcaption>}
+      </figure>
+      <p class="story__meta"><time datetime={lead.date}>{formatDate(lead.date, lang)}</time> · {lead.kind}</p>
+      <h3 class="story__title">{lead.link ? <a href={lead.link} rel={lead.external ? 'noopener' : undefined}>{lead.title}</a> : lead.title}</h3>
+      {lead.summary && <p class="story__summary">{lead.summary}</p>}
+    </article>
+  )}
+  {pair.length > 0 && (
+    <div class="story-pair">
+      {pair.map((it) => (
+        <article class="story">
+          <figure class="story__figure">
+            <img src={withBase(it.image)} alt={it.imageAlt} loading="lazy" width="600" height="400" />
+            {it.credit && <figcaption>{credit(it.credit)}</figcaption>}
+          </figure>
+          <p class="story__meta"><time datetime={it.date}>{formatDate(it.date, lang, 'month')}</time> · {it.kind}</p>
+          <h3 class="story__title story__title--small">{it.link ? <a href={it.link} rel={it.external ? 'noopener' : undefined}>{it.title}</a> : it.title}</h3>
+        </article>
+      ))}
+    </div>
+  )}
+  {rest.length > 0 && (
+    <ul class="dated">
+      {rest.map((it) => (
+        <li>
+          <time datetime={it.date}>{formatDate(it.date, lang, 'month')}</time>
+          <p>{it.link ? <a href={it.link} rel={it.external ? 'noopener' : undefined}>{it.title}</a> : it.title}</p>
+        </li>
+      ))}
+    </ul>
+  )}
+</Section>

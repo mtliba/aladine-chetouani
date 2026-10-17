@@ -1,0 +1,52 @@
+# Encadrement — modifiable dans le CMS (Pages > Équipe & thèses)
+intro_fr: Douze doctorants encadrés, dont quatre en cours, ainsi que quatre post-doctorants et plus de vingt stagiaires de master.
+intro_en: Twelve PhD students supervised, four of them ongoing, plus four postdocs and more than twenty MSc interns.
+members:
+  - name: Nicolas Drapier
+    role: phd
+    status: current
+    topic: "Hybridation de l'intelligence artificielle et de l'expertise des secours maritimes"
+    topic_en: "Combining artificial intelligence with the expertise of maritime rescue services"
+    with: ''
+    years: ''
+    link: https://theses.fr/s365886
+  - name: Daphné Senggaran
+    role: phd
+    status: current
+    topic: "L'expérience artistique dans le trouble du spectre de l'autisme"
+    topic_en: "Artistic experience in autism spectrum disorder"
+    with: Nadia Aguillon-Hernandez
+    years: ''
+    link: https://theses.fr/s395834
+  - name: Jean-Daniel De Ambrogi
+    role: phd
+    status: current
+    topic: "Imperniam"
+    topic_en: "Imperniam"
+    with: Vincent Nguyen, Aurélien Chateignier
+    years: ''
+    link: https://theses.fr/s415145
+  - name: Marouane Tliba
+    role: phd
+    status: alumni
+    topic: "Évaluation de la qualité des nuages de points 3D par apprentissage profond"
+    topic_en: "Deep-learning quality assessment of 3D point clouds"
+    with: Giuseppe Valenzise
+    years: '2024'
+    link: https://theses.fr/2024ORLE1079
+  - name: Zhe Wang
+    role: phd
+    status: alumni
+    topic: "Détection précoce de la gonarthrose par apprentissage profond"
+    topic_en: "Early detection of knee osteoarthritis with deep learning"
+    with: Rachid Jennane
+    years: '2024'
+    link: https://theses.fr/2024ORLE1015
+  - name: Mohamed Amine Kerkouri
+    role: phd
+    status: alumni
+    topic: "A gaze into the art world — modélisation de l'attention visuelle sur les œuvres d'art"
+    topic_en: "A gaze into the art world: modelling visual attention on artworks"
+    with: ''
+    years: '2024'
+    link: https://theses.fr/2024ORLE1070

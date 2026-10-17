@@ -1,0 +1,43 @@
+# Profil et réglages généraux — modifiable dans le CMS (Réglages > Profil)
+name: Aladine Chetouani
+short_name: A. Chetouani
+title_fr: Professeur des universités
+title_en: Full Professor
+tagline_fr: Aladine Chetouani étudie où se pose notre regard et comment nous jugeons ce que nous voyons, puis apprend aux machines à le prédire.
+tagline_en: Aladine Chetouani studies where people look and how they judge what they see, then teaches machines to predict both.
+affiliation_fr: Laboratoire L2TI, Institut Galilée · Université Sorbonne Paris Nord · Responsable de l'équipe Multimédia
+affiliation_en: L2TI Laboratory, Institut Galilée · Université Sorbonne Paris Nord · Head of the Multimedia Team
+photo: /uploads/profile/aladine-chetouani.jpg
+cv: ''
+photo_alt_fr: Portrait d'Aladine Chetouani
+photo_alt_en: Portrait of Aladine Chetouani
+email: aladine.chetouani@univ-paris13.fr
+phone: ''
+address_fr: |-
+  L2TI – Institut Galilée
+  Université Sorbonne Paris Nord
+  99 avenue Jean-Baptiste Clément
+  93430 Villetaneuse, France
+address_en: |-
+  L2TI – Institut Galilée
+  Université Sorbonne Paris Nord
+  99 avenue Jean-Baptiste Clément
+  93430 Villetaneuse, France
+office: ''
+open_positions_fr: Les candidatures spontanées pour des stages de master, thèses et post-doctorats en perception visuelle, attention visuelle et apprentissage profond sont les bienvenues. Envoyez un CV et une courte lettre par e-mail.
+open_positions_en: Unsolicited applications for MSc internships, PhD and postdoc positions in visual perception, visual attention and deep learning are welcome. Send a CV and a short letter by email.
+metrics:
+  source: Google Scholar
+  as_of: '2026-10'
+  citations: 2438
+  h_index: 26
+  i10_index: 70
+links:
+  - label: Google Scholar
+    url: https://scholar.google.com/citations?user=goUbn88AAAAJ
+  - label: ORCID
+    url: https://orcid.org/0000-0002-2066-4707
+  - label: HAL
+    url: https://hal.science/search/index/?q=authFullName_s%3A%22Aladine+Chetouani%22
+  - label: L2TI
+    url: https://l2ti.univ-paris13.fr/

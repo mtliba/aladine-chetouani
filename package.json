@@ -1,0 +1,24 @@
+{
+  "name": "aladine-chetouani-site",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Personal academic website of Prof. Aladine Chetouani (Université Sorbonne Paris Nord / L2TI), built with Astro and edited with Sveltia CMS.",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "sync:publications": "node scripts/sync-publications.mjs",
+    "setup": "node scripts/setup-repo.mjs"
+  },
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "dependencies": {
+    "@fontsource-variable/atkinson-hyperlegible-next": "^5.3.0",
+    "@fontsource/charis-sil": "^5.3.0",
+    "astro": "7.3.8",
+    "marked": "18.1.0",
+    "yaml": "2.9.1"
+  }
+}

@@ -1,0 +1,32 @@
+---
+import Icon from './Icon.astro';
+import { t, href, withBase, formatDate, pick, type Lang } from '../lib/i18n';
+import { getSite } from '../lib/content';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const s = t(lang);
+const site = getSite();
+const built = new Date().toISOString().slice(0, 10);
+const year = built.slice(0, 4);
+---
+<footer class="site-footer" id="contact" aria-labelledby="contact-title">
+  <h2 class="section__q" id="contact-title">{s.contact_question}</h2>
+  <div class="contact">
+    {pick(site, 'address', lang) && <p class="contact__address">{pick(site, 'address', lang)}</p>}
+    <ul class="contact__list">
+      {site.email && <li><Icon name="email" /><a href={`mailto:${site.email}`}>{site.email}</a></li>}
+      {site.phone && <li><Icon name="phone" /><a href={`tel:${String(site.phone).replace(/\s+/g, '')}`}>{site.phone}</a></li>}
+      {site.office && <li><Icon name="building" />{site.office}</li>}
+    </ul>
+  </div>
+  <div class="footer-bottom">
+    <p>© {year} {site.name} · {s.updated} {formatDate(built, lang)}</p>
+    <ul aria-label={s.footer_links}>
+      <li><a href={href(lang, 'publications/')}>{s.publications}</a></li>
+      <li><a href={href(lang, 'news/')}>{s.page_news_title}</a></li>
+      <li><a href="#main">{s.back_to_top} ↑</a></li>
+      <li><a href={withBase('/admin/')} rel="nofollow">{s.edit}</a></li>
+    </ul>
+  </div>
+</footer>

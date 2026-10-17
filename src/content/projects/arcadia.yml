@@ -1,0 +1,17 @@
+name: ARCADIA
+order: 2
+status: completed
+programme: Projet régional
+programme_en: Regional project
+role_fr: Responsable
+role_en: Leader
+period: ''
+budget: ''
+partners_fr: ''
+partners_en: ''
+title_fr: Reconnaissance automatique des motifs gravés sur les tessons de céramique archéologiques
+title_en: Automatic recognition of engraved patterns on archaeological pottery sherds
+summary_fr: Classification des décors de tessons par apprentissage profond et descripteurs de surface 3D.
+summary_en: Classification of sherd decorations with deep learning and 3D surface descriptors.
+link: ''
+grant: ''

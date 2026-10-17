@@ -1,0 +1,63 @@
+// Short venue labels for publication badges.
+// A publication can override its badge with an `abbr` field in the CMS.
+const RULES: [RegExp, string][] = [
+  [/transactions on multimedia/i, 'IEEE TMM'],
+  [/transactions on medical imaging/i, 'IEEE TMI'],
+  [/transactions on image processing/i, 'IEEE TIP'],
+  [/transactions on biomedical engineering/i, 'IEEE TBME'],
+  [/transactions on circuits and systems for video/i, 'IEEE TCSVT'],
+  [/journal of biomedical and health informatics/i, 'IEEE JBHI'],
+  [/selected topics in signal processing/i, 'IEEE JSTSP'],
+  [/ieee sensors journal/i, 'IEEE Sensors'],
+  [/ieee access/i, 'IEEE Access'],
+  [/pattern recognition letters/i, 'PRL'],
+  [/^pattern recognition$/i, 'PR'],
+  [/neural computing and applications/i, 'NCAA'],
+  [/^neurocomputing$/i, 'Neurocomputing'],
+  [/knowledge-based systems/i, 'KBS'],
+  [/multimedia tools and applications/i, 'MTAP'],
+  [/signal processing:? image communication/i, 'SPIC'],
+  [/visual communication and image representation/i, 'JVCI'],
+  [/journal of electronic imaging/i, 'JEI'],
+  [/iet image processing/i, 'IET IPR'],
+  [/intelligent systems with applications/i, 'ISWA'],
+  [/eurasip/i, 'EURASIP'],
+  [/^information$/i, 'Information'],
+  [/^sensors$/i, 'Sensors'],
+  [/applied sciences/i, 'Appl. Sci.'],
+  [/^electronic imaging$|IS&T|symposium on electronic imaging/i, 'IS&T EI'],
+  [/\bETRA\b|eye tracking research/i, 'ACM ETRA'],
+  [/\bICIP\b|international conference on image processing \(/i, 'IEEE ICIP'],
+  [/\bICASSP\b|acoustics, speech/i, 'IEEE ICASSP'],
+  [/\bICMEW?\b|multimedia (&|and) expo/i, 'IEEE ICME'],
+  [/\bISBI\b|biomedical imaging/i, 'IEEE ISBI'],
+  [/\bIPTA\b|image processing theory/i, 'IEEE IPTA'],
+  [/\bEUSIPCO\b|european signal processing/i, 'EUSIPCO'],
+  [/\bMMSP\b|multimedia signal processing/i, 'IEEE MMSP'],
+  [/\bCBMI\b|content-based multimedia/i, 'CBMI'],
+  [/\bEUVIP\b|visual information processing/i, 'EUVIP'],
+  [/\bQoMEX\b|quality of multimedia experience/i, 'QoMEX'],
+  [/\bICPR\b/i, 'ICPR'],
+  [/\bVISIGRAPP\b|computer vision, imaging and computer graphics/i, 'VISIGRAPP'],
+  [/\bGRETSI\b/i, 'GRETSI'],
+  [/\bORASIS\b|jeunes chercheurs en vision/i, 'ORASIS'],
+  [/\bISIVC\b|signal, image, video and communications/i, 'ISIVC'],
+  [/\bISPA\b/i, 'ISPA'],
+  [/\bVPQM\b/i, 'VPQM'],
+  [/\bMCO\b/i, 'MCO'],
+  [/systems, signals (&|and) devices|\bSSD\b/i, 'IEEE SSD'],
+  [/\bSITIS\b|signal-image technology/i, 'SITIS'],
+  [/\bMedPRAI\b|mediterranean conference on pattern/i, 'MedPRAI'],
+  [/\b3DTV/i, '3DTV-CON'],
+  [/\bISSPA\b/i, 'ISSPA'],
+  [/\bATSIP\b/i, 'ATSIP'],
+  [/\bEGC\b/i, 'EGC'],
+  [/lecture notes in computer science/i, 'LNCS'],
+];
+
+export function venueAbbr(pub: { abbr?: string; venue?: string; type?: string }, typeLabel: string): string {
+  if (pub.abbr) return String(pub.abbr);
+  const venue = String(pub.venue || '');
+  for (const [pattern, label] of RULES) if (pattern.test(venue)) return label;
+  return typeLabel;
+}
