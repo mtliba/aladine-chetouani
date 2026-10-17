@@ -94,18 +94,18 @@ Restrained: white page, near-black ink, one burgundy for links, the live gaze tr
 - Reading text, questions and lede: **Charis SIL** (Charter design, a classic academic text face), regular and bold, no italic display.
 - Interface (sidebar, dates, captions, credits, buttons, filters): **Atkinson Hyperlegible Next**, designed for low-vision legibility, chosen for a vision scientist's site.
 - No monospace. Dates and years use tabular figures of the interface face.
-- Hierarchy by size and weight; no uppercase tracked labels, no section numbers.
+- Hierarchy by size and weight; plain section titles, no uppercase tracked labels, no section numbers.
 
 ## Layout
 
 - Max width 1200px. Left column 260px (sticky on desktop): portrait, name, role, affiliation, links, citation line, gaze controls as a plain row (switch, "Show heatmap" link, live count), then the section menu. Language and theme switches sit top right of the reading column. Right column ≤ 44rem of prose; figures may span the column.
-- Home order: lede that invites the reader to watch their own gaze → bio → Q&A sections (research, news, publications, service, supervision, positions, blog, career) → contact.
-- Section heading = the question; the sidebar uses short labels for the same sections.
+- Home order: lede → gaze invitation → short bio → News (photo slider + short dated list) → Research → Selected publications → Gallery (horizontal photo strip with lightbox) → Supervision → Career → Contact. Join us, Blog and Service exist but are hidden.
 - One spacing rhythm: 5rem between sections, 2rem between blocks, more space above a heading than below.
 
 ## Components
 
-- **News lead**: the newest item with a picture large (3:2 frame, image contained, never cropped, so paper figures stay whole), headline, date and credit; then the next two pictured items side by side; then a dated text list.
+- **News slider**: items with a picture slide (3:2 frame, image contained so paper figures stay whole), date, headline, credit; arrows, dots, pause, swipe; auto-advance 7 s unless reduced motion. Then a short dated list.
+- **Gallery strip**: horizontal snap-scrolling photos with captions, drag and arrows; click opens a dark lightbox.
 - **Research answer**: theme title in bold serif + one plain sentence; one real figure from his papers beside the themes.
 - **Publication**: venue abbreviation and year as a small interface-face line, title in bold serif, authors (his name bold), links as plain text.
 - **Ledger**: conference leadership table (year, event and place, role).

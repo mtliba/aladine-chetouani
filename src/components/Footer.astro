@@ -11,7 +11,7 @@ const built = new Date().toISOString().slice(0, 10);
 const year = built.slice(0, 4);
 ---
 <footer class="site-footer" id="contact" aria-labelledby="contact-title">
-  <h2 class="section__q" id="contact-title">{s.contact_question}</h2>
+  <h2 class="section__q" id="contact-title">{s.contact_title}</h2>
   <div class="contact">
     {pick(site, 'address', lang) && <p class="contact__address">{pick(site, 'address', lang)}</p>}
     <ul class="contact__list">

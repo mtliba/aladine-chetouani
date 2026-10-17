@@ -29,7 +29,7 @@ const service: string[] = (pick(about, 'service', lang) || []).map(asText);
         {distinctions.length > 0 && (
           <div>
             <h3>{s.distinctions}</h3>
-            <ul>{distinctions.map((d) => <li><span class="num">{d.year}</span>{pick(d, 'title', lang)}</li>)}</ul>
+            <ul>{distinctions.map((d) => <li>{pick(d, 'title', lang)}{d.year && <span class="num"> ({d.year})</span>}</li>)}</ul>
           </div>
         )}
         {service.length > 0 && (

@@ -1,63 +1,42 @@
 # Ordre et visibilité des rubriques de la page d'accueil — modifiable dans le CMS (Réglages > Rubriques)
-# title : libellé court du menu ; question : titre affiché sur la page.
 sections:
-  - id: research
-    visible: true
-    title_fr: Recherche
-    title_en: Research
-    question_fr: Qu'étudie-t-il ?
-    question_en: What does he study?
   - id: news
     visible: true
     title_fr: Actualités
     title_en: News
-    question_fr: Quoi de neuf ?
-    question_en: What's new?
+  - id: research
+    visible: true
+    title_fr: Recherche
+    title_en: Research
   - id: publications
     visible: true
-    title_fr: Publications
-    title_en: Publications
-    question_fr: Où lire ses travaux ?
-    question_en: Where can I read the work?
+    title_fr: Publications choisies
+    title_en: Selected publications
+  - id: gallery
+    visible: true
+    title_fr: Galerie
+    title_en: Gallery
   - id: team
     visible: true
     title_fr: Encadrement
     title_en: Supervision
-    question_fr: Avec qui travaille-t-il ?
-    question_en: Who does he work with?
-  - id: service
-    visible: true
-    title_fr: Communauté scientifique
-    title_en: Service
-    question_fr: Que fait-il pour la communauté ?
-    question_en: What does he do for the community?
-  - id: positions
-    visible: true
-    title_fr: Recrutement
-    title_en: Join us
-    question_fr: Peut-on rejoindre l'équipe ?
-    question_en: Can I join the team?
-  - id: blog
-    visible: true
-    title_fr: Blog
-    title_en: Blog
-    question_fr: Blog
-    question_en: Blog
   - id: about
     visible: true
     title_fr: Parcours
     title_en: Career
-    question_fr: Quel est son parcours ?
-    question_en: How did he get here?
-  - id: gallery
+  - id: positions
     visible: false
-    title_fr: Galerie
-    title_en: Gallery
-    question_fr: En images
-    question_en: In pictures
+    title_fr: Recrutement
+    title_en: Join us
+  - id: blog
+    visible: false
+    title_fr: Blog
+    title_en: Blog
+  - id: service
+    visible: false
+    title_fr: Communauté scientifique
+    title_en: Service
   - id: teaching
     visible: false
     title_fr: Enseignement
     title_en: Teaching
-    question_fr: Qu'enseigne-t-il ?
-    question_en: What does he teach?

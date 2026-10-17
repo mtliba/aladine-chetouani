@@ -1,24 +1,16 @@
 ---
 import Section from '../Section.astro';
-import { t, pick, withBase, type Lang } from '../../lib/i18n';
+import Filmstrip from '../Filmstrip.astro';
+import { t, type Lang } from '../../lib/i18n';
 import { getGallery } from '../../lib/content';
 
 interface Props { lang: Lang; title: string; n?: number }
-const { lang, title, n } = Astro.props;
+const { lang, title } = Astro.props;
 const s = t(lang);
 const items = getGallery();
 ---
 {items.length > 0 && (
-  <Section id="gallery" title={title} n={n} intro={s.gallery_intro}>
-    <ul class="gallery">
-      {items.map((g) => (
-        <li>
-          <figure>
-            <a href={withBase(g.image)}><img src={withBase(g.image)} alt={pick(g, 'caption', lang) || ''} loading="lazy" /></a>
-            {pick(g, 'caption', lang) && <figcaption>{pick(g, 'caption', lang)}{g.credit && <span class="muted"> · {g.credit}</span>}</figcaption>}
-          </figure>
-        </li>
-      ))}
-    </ul>
+  <Section id="gallery" title={title} intro={s.gallery_intro}>
+    <Filmstrip lang={lang} items={items} />
   </Section>
 )}

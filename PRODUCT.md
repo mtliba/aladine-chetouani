@@ -39,6 +39,7 @@ His work is about where human eyes go and how people judge what they see; the si
 - Live gaze trace and attention heatmap must stay (the creative touch the user asked for).
 - Different from the sister site for Prof. Tedjani Mesbahi (blue accent, banner card layout).
 - User rejects "AI slop": generic fonts, stat strips, section numbering, decorative monospace, eyebrow labels everywhere.
+- Plain section titles, not questions; a few highlights, not the full CV (like the Tedjani Mesbahi site). News as a photo slider and a photo gallery.
 
 ## Evidence on Hand
 

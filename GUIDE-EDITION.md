@@ -37,7 +37,7 @@ Le navigateur se souvient de la connexion. Pour changer la langue de l'interface
 4. Ajoutez une **Photo** (format paysage 3:2 de préférence) et son **Crédit photo** (obligatoire si la photo ne vous appartient pas).
 6. Cliquez sur **Enregistrer** (*Save*).
 
-Les actualités les plus récentes qui ont une photo s’affichent en grand en tête de « Quoi de neuf ? » ; toutes sont sur la page « Actualités ».
+Les actualités qui ont une photo défilent dans le diaporama en tête de la rubrique Actualités ; toutes sont sur la page « Actualités ».
 
 ---
 
@@ -49,8 +49,8 @@ Pour annoncer rapidement une participation à une conférence, un article accept
 2. Choisissez la **date** et le **type** (Participation, Article accepté, Article publié, Intervention…).
 3. Écrivez **une seule phrase** (français, et anglais si possible), par exemple : « Article accepté dans IEEE Transactions on Multimedia ».
 4. Facultatif : un **lien** (DOI, page de la conférence, ou une actualité du site).
-5. Facultatif : une **Photo ou figure** avec son crédit. Les brèves avec photo passent en tête, en grand.
-6. Enregistrez. Les brèves apparaissent dans « Quoi de neuf ? » et sur la page Actualités.
+5. Facultatif : une **Photo ou figure** avec son crédit. Les brèves avec photo entrent dans le diaporama.
+6. Enregistrez. Les brèves apparaissent dans la rubrique Actualités et sur la page Actualités.
 
 ## 2 ter. Recrutement (offres de thèse, post-doc, stage)
 
@@ -62,12 +62,12 @@ Sans offre ouverte, la rubrique affiche le texte « Candidatures spontanées » 
 
 ---
 
-## 3. Galerie photos (rubrique masquée au départ)
+## 3. Galerie photos
 
 1. Menu **Galerie photos** → **Nouveau**.
 2. Ajoutez la **Photo**, une **Légende** (français, et anglais si possible), la **date** et le **crédit photo**.
 3. Facultatif : un **Lien** vers une actualité du site (ex. : `news/2026-06-01-titre/`) ou une adresse `https://…`.
-4. Enregistrez, puis affichez la rubrique dans **Réglages → Rubriques de la page d'accueil** (case **Afficher** de « Galerie »).
+4. Enregistrez. Les photos défilent dans la rubrique Galerie ; un clic sur une photo l'agrandit.
 
 Pour retirer une photo sans la supprimer, cochez **Masquer du site**.
 
@@ -112,7 +112,7 @@ Menu **Réglages** → **Rubriques de la page d'accueil** :
 
 - faites glisser une rubrique pour changer son ordre ;
 - décochez **Afficher** pour la masquer ;
-- modifiez le **libellé du menu** (colonne de gauche) et le **titre affiché sur la page**, rédigé comme une question simple (« Qu’étudie-t-il ? »), en français et en anglais.
+- modifiez les titres en français et en anglais.
 
 La rubrique **Enseignement** est masquée au départ : complétez d'abord **Pages → Enseignement** (liste des cours), puis cochez **Afficher**.
 

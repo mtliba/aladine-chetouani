@@ -128,7 +128,7 @@ collections:
         label: Photo
         widget: image
         required: false
-        hint: Affichée en tête de la rubrique « Quoi de neuf ? » et sur la page de l'actualité. Format paysage (3:2) de préférence.
+        hint: Affichée dans le diaporama des actualités et sur la page de l'actualité. Format paysage (3:2) de préférence.
       - name: image_credit
         label: Crédit photo
         widget: string
@@ -145,7 +145,7 @@ collections:
   - name: updates
     label: En bref
     label_singular: Brève
-    description: "Une ligne par nouvelle : participation à une conférence, article accepté ou publié, intervention, distinction, arrivée dans l'équipe, recrutement… Elles s'affichent dans « Quoi de neuf ? » ; celles qui ont une photo passent en tête, en grand."
+    description: "Une ligne par nouvelle : participation à une conférence, article accepté ou publié, intervention, distinction, arrivée dans l'équipe, recrutement… Elles s'affichent dans la rubrique Actualités ; celles qui ont une photo défilent dans le diaporama."
     icon: bolt
     folder: src/content/updates
     format: yml
@@ -217,7 +217,7 @@ collections:
         label: Photo ou figure
         widget: image
         required: false
-        hint: Facultatif. Les brèves avec photo apparaissent en grand en tête de « Quoi de neuf ? ». Format paysage (3:2).
+        hint: Facultatif. Les brèves avec photo entrent dans le diaporama des actualités. Format paysage (3:2).
       - name: image_credit
         label: Crédit
         widget: string
@@ -337,7 +337,7 @@ collections:
   - name: gallery
     label: Galerie photos
     label_singular: Photo
-    description: Photos affichées dans la rubrique Galerie (masquée par défaut), de la plus récente à la plus ancienne.
+    description: Photos affichées dans la galerie défilante de la page d'accueil.
     icon: photo_library
     folder: src/content/gallery
     format: yml
@@ -1156,18 +1156,8 @@ collections:
                 widget: boolean
                 default: true
               - name: title_fr
-                label: Libellé du menu (français)
+                label: Titre (français)
                 widget: string
               - name: title_en
-                label: Libellé du menu (anglais)
+                label: Titre (anglais)
                 widget: string
-              - name: question_fr
-                label: Titre affiché sur la page (français)
-                widget: string
-                required: false
-                hint: "Une question simple. Ex. : Qu’étudie-t-il ?"
-              - name: question_en
-                label: Titre affiché sur la page (anglais)
-                widget: string
-                required: false
-                hint: "Ex. : What does he study?"

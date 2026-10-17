@@ -16,7 +16,7 @@ import type { Lang } from '../lib/i18n';
 interface Props { lang: Lang }
 const { lang } = Astro.props;
 const sections = getHomeSections();
-const titleOf = (sec: any) => (lang === 'fr' ? sec.question_fr || sec.title_fr : sec.question_en || sec.title_en) || sec.question_fr || sec.title_fr || sec.id;
+const titleOf = (sec: any) => (lang === 'fr' ? sec.title_fr : sec.title_en) || sec.title_fr || sec.id;
 const components: Record<string, any> = {
   news: NewsSection,
   research: ResearchSection,
